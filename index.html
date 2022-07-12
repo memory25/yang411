@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>niniebaby</title>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="snowfail.css" />
+</head>
+
+<body>
+	<canvas id="loveCanvas"></canvas>
+	<div class="flex">
+  		<div id="cubeWrap">
+			<div id="cube">
+				<div class="out_front">
+					<img src="./imgs/cube1.jpg" class="pic" />
+				</div>
+				<div class="out_back">
+					<img src="./imgs/cube2.jpg" class="pic" />
+				</div>
+				<div class="out_left">
+					<img src="./imgs/cube3.jpg" class="pic" />
+				</div>
+				<div class="out_right">
+					<img src="./imgs/cube4.jpg" class="pic" />
+				</div>
+				<div class="out_top">
+					<img src="./imgs/cube5.jpg" class="pic" />
+				</div>
+				<div class="out_bottom">
+					<img src="./imgs/cube6.jpg" class="pic" />
+				</div>
+				<span class="in_front">
+					<img src="./imgs/cube7.jpg" class="in_pic" />
+				</span>
+				<span class="in_back">
+					<img src="./imgs/cube8.jpg" class="in_pic" />
+				</span>
+				<span class="in_left">
+					<img src="./imgs/cube9.jpg" class="in_pic" />
+				</span>
+				<span class="in_right">
+					<img src="./imgs/cube10.jpg" class="in_pic" />
+				</span>
+				<span class="in_top">
+					<img src="./imgs/cube11.jpg" class="in_pic" />
+				</span>
+				<span class="in_bottom">
+					<img src="./imgs/cube12.jpg" class="in_pic" />
+				</span>
+			</div>
+		</div>
+		
+		<div id="photosWrap">
+    		<div id="photos">
+			  <img src="./imgs/cube8.jpg" class="pic" />
+    		  <img src="./imgs/spin1.jpg" class="pic" />
+    		  <img src="./imgs/spin2.jpg" class="pic" />
+    		  <img src="./imgs/spin3.jpg" class="pic" />
+    		  <img src="./imgs/spin4.jpg" class="pic" />
+    		  <img src="./imgs/spin5.jpg" class="pic" />
+    		  <img src="./imgs/spin6.jpg" class="pic" />
+    		  <img src="./imgs/spin7.jpg" class="pic" />
+    		  <img src="./imgs/spin8.jpg" class="pic" />
+    		  <img src="./imgs/spin9.jpg" class="pic" />
+    		  <img src="./imgs/spin10.jpg" class="pic" />
+    		  <img src="./imgs/spin11.jpg" class="pic" />
+    		  <img src="./imgs/spin12.jpg" class="pic" />
+    		  <img src="./imgs/spin13.jpg" class="pic" />
+    		  <img src="./imgs/spin14.jpg" class="pic" />
+    		  <img src="./imgs/spin15.jpg" class="pic" />
+    		  <img src="./imgs/spin16.jpg" class="pic" />
+    		  <img src="./imgs/spin17.jpg" class="pic" />
+    		  <img src="./imgs/spin18.jpg" class="pic" />
+    		  <img src="./imgs/spin19.jpg" class="pic" />
+			
+    		  <div class="bling"></div>
+    		</div>
+		</div>
+	</div>
+
+	<div id="home">
+		<div class="star-1"></div>
+		<div class="star-2"></div>
+		<div class="star-3"></div>
+	</div>
+
+  <script>
+  	function showLove() {
+		var c = document.querySelector('#loveCanvas');
+		var a = c.getContext('2d');
+		e=[];h=[];O=c.width=innerWidth;Q=c.height=innerHeight;v=32;M=Math;R=M.random;C=M.cos;Y=6.3;for(i=0;i<Y;i+=0.2)h.push([O/2+180*M.pow(M.sin(i),3),Q/2+10*-(15*C(i)-5*C(2*i)-2*C(3*i)-C(4*i))]);
+		for(i=0;i<v;){x=R()*O;y=R()*Q;H=80*(i/v)+280;S=40*R()+60;B=60*R()+20;f=[];for(k=0;k<v;)f[k++]={x:x,y:y,X:0,Y:0,R:1-k/v+1,S:R()+1,q:~~(R()*v),D:2*(i%2)-1,F:0.2*R()+0.7,f:"hsla("+~~H+","+~~S+"%,"+~~B+"%,.1)"};e[i++]=f}
+		function _(d){a.fillStyle=d.f;a.beginPath();a.arc(d.x,d.y,d.R,0,Y,1);a.closePath();a.fill()}
+		setInterval(function(){a.fillStyle="rgba(0,0,0,.2)";a.fillRect(0,0,O,Q);for(i=v;i--;){f=e[i];u=f[0];q=h[u.q];D=u.x-q[0];E=u.y-q[1];G=M.sqrt(D*D+E*E);10>G&&(0.95<R()?u.q=~~(R()*v):(0.99<R()&&(u.D*=-1),u.q+=u.D,u.q%=v,0>u.q&&(u.q+=v)));u.X+=-D/G*u.S;u.Y+=-E/G*u.S;u.x+=u.X;u.y+=u.Y;_(u);u.X*=u.F;u.Y*=u.F;for(k=0;k<v-1;)T=f[k],N=f[++k],N.x-=0.7*(N.x-T.x),N.y-=0.7*(N.y-T.y),_(N)}},60);
+	}
+	showLove();
+
+
+	function spinAround(){
+		var photosDom = document.querySelector('#photos');
+		var images = photosDom.querySelectorAll('.pic');
+		var len = images.length;        
+		var deg = Math.floor(360 / len);                    
+
+		for(var i = 0; i < len;i++){
+		    images[i].style = `transform: rotateX(0deg) rotateY(${deg*i}deg) translateZ(550px)`;
+		}
+	}
+	spinAround();
+	
+  </script>
+</body>
+
+</html>
